@@ -1,0 +1,27 @@
+[submodule "external/fpm"]
+	path = external/fpm
+	url = https://github.com/MikeLankamp/fpm.git
+[submodule "external/libfixmath"]
+	path = external/libfixmath
+	url = https://github.com/PetteriAimonen/libfixmath.git
+[submodule "external/highway"]
+	path = external/highway
+	url = https://github.com/google/highway.git
+[submodule "external/xsimd"]
+	path = external/xsimd
+	url = https://github.com/xtensor-stack/xsimd.git
+[submodule "external/cordic"]
+	path = external/cordic
+	url = https://github.com/johnhw/cordic.git
+[submodule "external/fixed_math"]
+	path = external/fixed_math
+	url = https://github.com/arturbac/fixed_math.git
+[submodule "external/eve"]
+	path = external/eve
+	url = https://github.com/jfalcou/eve.git
+[submodule "external/universal"]
+	path = external/universal
+	url = https://github.com/stillwater-sc/universal.git
+[submodule "external/fixed_point_cnl"]
+	path = external/fixed_point_cnl
+	url = https://github.com/johnmcfarlane/fixed_point.git
