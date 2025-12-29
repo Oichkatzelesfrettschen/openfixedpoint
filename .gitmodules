@@ -25,3 +25,24 @@
 [submodule "external/fixed_point_cnl"]
 	path = external/fixed_point_cnl
 	url = https://github.com/johnmcfarlane/fixed_point.git
+[submodule "external/liquid-fpm"]
+	path = external/liquid-fpm
+	url = https://github.com/jgaeddert/liquid-fpm.git
+[submodule "external/fix32"]
+	path = external/fix32
+	url = https://github.com/warpco/fix32.git
+[submodule "external/MFixedPoint"]
+	path = external/MFixedPoint
+	url = https://github.com/gbmhunter/MFixedPoint.git
+[submodule "external/qdsp"]
+	path = external/qdsp
+	url = https://github.com/elf-audio/qdsp.git
+[submodule "external/tarballs/external/fptc-lib"]
+	path = external/tarballs/external/fptc-lib
+	url = https://github.com/mgetka/fptc-lib.git
+[submodule "external/fptc-lib"]
+	path = external/fptc-lib
+	url = https://github.com/mgetka/fptc-lib.git
+[submodule "external/CMSIS-DSP"]
+	path = external/CMSIS-DSP
+	url = https://github.com/ARM-software/CMSIS-DSP.git
