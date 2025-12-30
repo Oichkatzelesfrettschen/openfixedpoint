@@ -313,21 +313,15 @@ inline auto cos(FixedPoint<TotalBits, FracBits, Signed, Policy> angle) {
     raw_type z = angle.raw();
     raw_type x, y;
     
-    bool negate = false;
+    // Handle negative angles (cos is even function, so cos(-x) = cos(x))
     if (z < 0) {
         z = -z;
     }
     
-    // Check if we're in quadrants 2 or 3 (cos is negative)
-    auto pi_over_2 = constants::pi_over_2<FP>();
-    if (angle > pi_over_2 || angle < -pi_over_2) {
-        negate = true;
-    }
-    
     detail::cordic_rotation(x, y, z, 16);
     
-    auto result = FP::from_raw(x);
-    return negate ? -result : result;
+    // x contains cos(|angle|)
+    return FP::from_raw(x);
 }
 
 template<int TotalBits, int FracBits, bool Signed, OverflowPolicy Policy>

@@ -162,17 +162,21 @@ void fir_filter(
 {
     using FP = FixedType;
     
-    // Sliding window implementation
+    // Process each input sample
     for (size_t n = 0; n < InputSize; ++n) {
-        // Shift state
-        for (size_t i = NumTaps - 1; i > 0; --i) {
-            state[i - 1] = (i == 1) ? input[n] : state[i - 2];
+        // Shift state buffer (move old samples down)
+        for (size_t i = NumTaps - 1; i > 1; --i) {
+            state[i - 1] = state[i - 2];
+        }
+        // Insert new input at the beginning
+        if (NumTaps > 1) {
+            state[0] = input[n];
         }
         
         // Compute output: y[n] = sum(b[k] * x[n-k])
         FP acc = coeffs[0] * input[n];
         for (size_t k = 1; k < NumTaps; ++k) {
-            if (k - 1 < NumTaps - 1) {
+            if (k - 1 < state.size()) {
                 acc = acc + coeffs[k] * state[k - 1];
             }
         }
@@ -302,7 +306,8 @@ std::array<FixedType, XSize + HSize - 1> convolve(
 /**
  * @brief Correlation
  * 
- * Computes discrete correlation (similar to convolution but without time reversal)
+ * Computes discrete correlation: R[lag] = sum(x[n] * y[n+lag])
+ * For lag in range [-(YSize-1), XSize-1]
  */
 template<typename FixedType, size_t XSize, size_t YSize>
 std::array<FixedType, XSize + YSize - 1> correlate(
@@ -313,15 +318,18 @@ std::array<FixedType, XSize + YSize - 1> correlate(
     constexpr size_t OutSize = XSize + YSize - 1;
     std::array<FP, OutSize> result{};
     
-    for (size_t lag = 0; lag < OutSize; ++lag) {
+    for (size_t i = 0; i < OutSize; ++i) {
         FP sum = FP(0);
+        // lag = i - (YSize - 1), ranges from -(YSize-1) to XSize-1
+        int lag = static_cast<int>(i) - static_cast<int>(YSize - 1);
+        
         for (size_t n = 0; n < XSize; ++n) {
-            int idx = static_cast<int>(n) + static_cast<int>(lag) - static_cast<int>(YSize) + 1;
-            if (idx >= 0 && idx < static_cast<int>(YSize)) {
-                sum = sum + x[n] * y[idx];
+            int y_idx = static_cast<int>(n) + lag;
+            if (y_idx >= 0 && y_idx < static_cast<int>(YSize)) {
+                sum = sum + x[n] * y[y_idx];
             }
         }
-        result[lag] = sum;
+        result[i] = sum;
     }
     
     return result;
