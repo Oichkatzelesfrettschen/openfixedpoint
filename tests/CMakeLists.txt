@@ -86,3 +86,29 @@ add_executable(test_gen_q8_8
 target_link_libraries(test_gen_q8_8 PRIVATE fixp::fixp)
 target_compile_features(test_gen_q8_8 PRIVATE c_std_23)
 add_test(NAME test_gen_q8_8 COMMAND test_gen_q8_8)
+
+#-----------------------------------------------------------------------------
+# Math Functions Tests (C++)
+#-----------------------------------------------------------------------------
+add_executable(test_math_functions
+    unit/test_math_functions.cpp
+)
+target_link_libraries(test_math_functions PRIVATE fixp::fixp)
+target_compile_features(test_math_functions PRIVATE cxx_std_23)
+add_test(NAME test_math_functions COMMAND test_math_functions)
+
+#-----------------------------------------------------------------------------
+# Math Functions Tests (C23)
+#-----------------------------------------------------------------------------
+add_library(q15_16_math_impl OBJECT
+    ../include/fixp/gen/q15_16_math.c
+)
+target_include_directories(q15_16_math_impl PUBLIC ../include)
+target_compile_features(q15_16_math_impl PRIVATE c_std_23)
+
+add_executable(test_c_math_functions
+    unit/test_c_math_functions.c
+)
+target_link_libraries(test_c_math_functions PRIVATE fixp::fixp q15_16_math_impl m)
+target_compile_features(test_c_math_functions PRIVATE c_std_23)
+add_test(NAME test_c_math_functions COMMAND test_c_math_functions)
