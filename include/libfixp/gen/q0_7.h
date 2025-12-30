@@ -6,8 +6,8 @@
  * Underlying storage: int8_t (8-bit).
  */
 
-#ifndef FIXP_GEN_Q0_7_H
-#define FIXP_GEN_Q0_7_H
+#ifndef LIBFIXP_GEN_Q0_7_H
+#define LIBFIXP_GEN_Q0_7_H
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -63,4 +63,4 @@ static inline double q0_7_to_double(q0_7_t a) {
 }
 #endif
 
-#endif // FIXP_GEN_Q0_7_H
+#endif // LIBFIXP_GEN_Q0_7_H

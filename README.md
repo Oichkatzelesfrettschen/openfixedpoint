@@ -11,14 +11,14 @@ A modern, clean-room synthesized fixed-point arithmetic library for C23 and C++2
 
 ## Usage (C++23)
 
-Use the `fixp::FixedPoint` template for type-safe, compile-time optimized fixed-point arithmetic.
+Use the `libfixp::FixedPoint` template for type-safe, compile-time optimized fixed-point arithmetic.
 
 ```cpp
-#include <fixp/fixed_point.hpp>
+#include <libfixp/fixed_point.hpp>
 #include <print> // C++23
 
-using Q16_16 = fixp::FixedPoint<32, 16>;
-using Q0_7   = fixp::FixedPoint<8, 7>;
+using Q16_16 = libfixp::FixedPoint<32, 16>;
+using Q0_7   = libfixp::FixedPoint<8, 7>;
 
 int main() {
     Q16_16 a(1.5);
@@ -26,7 +26,7 @@ int main() {
     Q16_16 c = a + b; // 3.5
 
     // Saturation support
-    using SatQ7 = fixp::FixedPoint<8, 7, true, fixp::OverflowPolicy::Saturate>;
+    using SatQ7 = libfixp::FixedPoint<8, 7, true, libfixp::OverflowPolicy::Saturate>;
     SatQ7 max_val = SatQ7::max();
     SatQ7 overflow = max_val + SatQ7(0.1); // Saturates, doesn't wrap
 }
@@ -34,10 +34,10 @@ int main() {
 
 ## Usage (C23)
 
-For C, use the generated headers in `include/fixp/gen/`.
+For C, use the generated headers in `include/libfixp/gen/`.
 
 ```c
-#include <fixp/gen/q15_16.h> // Standard Q16.16 (32-bit)
+#include <libfixp/gen/q15_16.h> // Standard Q16.16 (32-bit)
 
 void example() {
     q15_16_t a = q15_16_from_double(1.5);
@@ -74,7 +74,7 @@ ctest
 
 ## Legacy Support
 
-The library provides backward compatibility headers `fixp_q16_16.h` and `fixp_q7.h` which map to the new modern implementations.
+The library provides backward compatibility headers `libfixp_q16_16.h` and `libfixp_q7.h` which map to the new modern implementations.
 
 ## License
 

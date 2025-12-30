@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <math.h>
-#include "fixp_q16_16.h"
+#include "libfixp_q16_16.h"
 
 // Simple C test runner
 int main(void) {

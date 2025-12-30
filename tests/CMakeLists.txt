@@ -23,7 +23,7 @@ add_executable(test_q16_16_cpp
 
 target_link_libraries(test_q16_16_cpp
     PRIVATE
-        fixp::fixp
+        libfixp::libfixp
         Catch2::Catch2WithMain
 )
 
@@ -43,7 +43,7 @@ add_executable(test_q16_16_c
 
 target_link_libraries(test_q16_16_c
     PRIVATE
-        fixp::fixp
+        libfixp::libfixp
 )
 
 # C23 features
@@ -60,7 +60,7 @@ add_executable(test_q7_c
 
 target_link_libraries(test_q7_c
     PRIVATE
-        fixp::fixp
+        libfixp::libfixp
 )
 
 target_compile_features(test_q7_c PRIVATE c_std_23)
@@ -73,7 +73,7 @@ add_test(NAME test_q7_c COMMAND test_q7_c)
 add_executable(test_cpp_template
     unit/test_cpp_template.cpp
 )
-target_link_libraries(test_cpp_template PRIVATE fixp::fixp Catch2::Catch2WithMain)
+target_link_libraries(test_cpp_template PRIVATE libfixp::libfixp Catch2::Catch2WithMain)
 target_compile_features(test_cpp_template PRIVATE cxx_std_23)
 add_test(NAME test_cpp_template COMMAND test_cpp_template)
 
@@ -83,6 +83,6 @@ add_test(NAME test_cpp_template COMMAND test_cpp_template)
 add_executable(test_gen_q8_8
     unit/test_gen_q8_8.c
 )
-target_link_libraries(test_gen_q8_8 PRIVATE fixp::fixp)
+target_link_libraries(test_gen_q8_8 PRIVATE libfixp::libfixp)
 target_compile_features(test_gen_q8_8 PRIVATE c_std_23)
 add_test(NAME test_gen_q8_8 COMMAND test_gen_q8_8)

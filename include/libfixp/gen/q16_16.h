@@ -6,8 +6,8 @@
  * Underlying storage: int64_t (64-bit signed integer holding the logical value).
  */
 
-#ifndef FIXP_GEN_Q16_16_H
-#define FIXP_GEN_Q16_16_H
+#ifndef LIBFIXP_GEN_Q16_16_H
+#define LIBFIXP_GEN_Q16_16_H
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -63,4 +63,4 @@ static inline double q16_16_to_double(q16_16_t a) {
 }
 #endif
 
-#endif // FIXP_GEN_Q16_16_H
+#endif // LIBFIXP_GEN_Q16_16_H

@@ -2,7 +2,7 @@
 #include <catch2/catch_approx.hpp>
 #include "fixp/fixed_point.hpp"
 
-using namespace fixp;
+using namespace libfixp;
 
 TEST_CASE("FixedPoint Template Basic Operations", "[template]") {
     // Q16.16 equivalent

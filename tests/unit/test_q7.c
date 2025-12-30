@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <math.h>
-#include "fixp_q7.h"
+#include "libfixp_q7.h"
 
 int main(void) {
     // Test conversion

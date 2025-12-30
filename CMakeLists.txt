@@ -27,15 +27,15 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Library Definition
 #-----------------------------------------------------------------------------
 # Header-only library
-add_library(fixp INTERFACE)
-add_library(fixp::fixp ALIAS fixp)
+add_library(libfixp INTERFACE)
+add_library(libfixp::libfixp ALIAS libfixp)
 
-target_include_directories(fixp INTERFACE
+target_include_directories(libfixp INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
 
-target_compile_features(fixp INTERFACE
+target_compile_features(libfixp INTERFACE
     c_std_23
     cxx_std_23
 )
@@ -44,11 +44,11 @@ target_compile_features(fixp INTERFACE
 # Compiler Warnings (Treat Warnings as Errors)
 #-----------------------------------------------------------------------------
 if(MSVC)
-    target_compile_options(fixp INTERFACE
+    target_compile_options(libfixp INTERFACE
         /W4 /WX /permissive-
     )
 else()
-    target_compile_options(fixp INTERFACE
+    target_compile_options(libfixp INTERFACE
         -Wall -Wextra -Wpedantic -Werror
         -Wconversion -Wsign-conversion -Wshadow
     )
@@ -67,8 +67,8 @@ endif()
 #-----------------------------------------------------------------------------
 include(GNUInstallDirs)
 
-install(TARGETS fixp
-    EXPORT fixpTargets
+install(TARGETS libfixp
+    EXPORT libfixpTargets
     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
@@ -76,8 +76,8 @@ install(DIRECTORY include/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
-install(EXPORT fixpTargets
-    FILE fixpTargets.cmake
-    NAMESPACE fixp::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/fixp
+install(EXPORT libfixpTargets
+    FILE libfixpTargets.cmake
+    NAMESPACE libfixp::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/libfixp
 )

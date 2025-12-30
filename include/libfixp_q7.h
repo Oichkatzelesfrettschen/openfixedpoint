@@ -1,11 +1,11 @@
-#ifndef FIXP_Q7_H
-#define FIXP_Q7_H
+#ifndef LIBFIXP_Q7_H
+#define LIBFIXP_Q7_H
 
 #ifdef __cplusplus
-    #include "fixp/fixed_point.hpp"
-    #include "fixp/gen/q0_7.h"
+    #include "libfixp/fixed_point.hpp"
+    #include "libfixp/gen/q0_7.h"
 #else
-    #include "fixp/gen/q0_7.h"
+    #include "libfixp/gen/q0_7.h"
 #endif
 
 // Map legacy names to generated names

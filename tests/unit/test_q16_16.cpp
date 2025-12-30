@@ -1,8 +1,8 @@
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/catch_approx.hpp>
-#include "fixp_q16_16.h"
+#include "libfixp_q16_16.h"
 
-using namespace fixp;
+using namespace libfixp;
 
 TEST_CASE("Q16.16 Basic Operations", "[q16.16]") {
     SECTION("Construction and Conversion") {

@@ -1,15 +1,15 @@
-#ifndef FIXP_Q16_16_H
-#define FIXP_Q16_16_H
+#ifndef LIBFIXP_Q16_16_H
+#define LIBFIXP_Q16_16_H
 
 // Map "Q16.16" to the Q15.16 implementation (32-bit)
 // which corresponds to the standard Q16.16 usage (16-bit fractional).
 // Q15.16 has 1 sign, 15 integer, 16 fractional = 32 bits.
 
 #ifdef __cplusplus
-    #include "fixp/fixed_point.hpp"
-    #include "fixp/gen/q15_16.h"
+    #include "libfixp/fixed_point.hpp"
+    #include "libfixp/gen/q15_16.h"
 #else
-    #include "fixp/gen/q15_16.h"
+    #include "libfixp/gen/q15_16.h"
 #endif
 
 // Typedef map
@@ -191,7 +191,7 @@ static inline q16_16_t q16_16_tan(q16_16_t angle) {
 #ifdef __cplusplus
 }
 
-namespace fixp {
+namespace libfixp {
     inline Q16_16 sin(Q16_16 x) { return Q16_16::from_raw(q16_16_sin(x.raw())); }
     inline Q16_16 cos(Q16_16 x) { return Q16_16::from_raw(q16_16_cos(x.raw())); }
     inline Q16_16 tan(Q16_16 x) { return Q16_16::from_raw(q16_16_tan(x.raw())); }
@@ -199,4 +199,4 @@ namespace fixp {
 }
 #endif
 
-#endif // FIXP_Q16_16_H
+#endif // LIBFIXP_Q16_16_H

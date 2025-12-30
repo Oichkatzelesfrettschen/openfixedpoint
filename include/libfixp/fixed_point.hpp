@@ -1,5 +1,5 @@
-#ifndef FIXP_FIXED_POINT_HPP
-#define FIXP_FIXED_POINT_HPP
+#ifndef LIBFIXP_FIXED_POINT_HPP
+#define LIBFIXP_FIXED_POINT_HPP
 
 #include <cstdint>
 #include <concepts>
@@ -9,7 +9,7 @@
 #include <bit>
 #include <cmath>
 
-namespace fixp {
+namespace libfixp {
 
 /**
  * @brief Overflow policies for fixed-point arithmetic
@@ -214,6 +214,6 @@ using Q15_16 = FixedPoint<32, 16>;
 using Q16_16 = FixedPoint<32, 16>; // Often synonymous
 using Q0_7   = FixedPoint<8, 7>;
 
-} // namespace fixp
+} // namespace libfixp
 
-#endif // FIXP_FIXED_POINT_HPP
+#endif // LIBFIXP_FIXED_POINT_HPP
