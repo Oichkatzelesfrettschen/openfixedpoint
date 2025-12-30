@@ -1,14 +1,9 @@
 /**
  * @file q16_16.h
- * @brief Fixed-point implementation with 16 fractional bits (Generated)
+ * @brief Q16.16 Fixed-Point Implementation (Generated)
  *
- * Logical format: 1 sign bit, 16 integer bits, 16 fractional bits (33 bits total),
- * stored in a 64-bit integer type (int64_t) to provide extra headroom.
- *
- * Note: In some literature, "Q16.16" refers to a 32-bit format with 16 fractional bits
- * (1 sign bit + 15 integer bits + 16 fractional bits, often described as Q15.16).
- * This header instead uses the name q16_16_t for the above 64-bit representation
- * with 16 fractional bits.
+ * Logical format: 1 sign bit, 16 integer bits, 16 fractional bits (Q16.16).
+ * Underlying storage: int64_t (64-bit signed integer holding the logical value).
  */
 
 #ifndef FIXP_GEN_Q16_16_H

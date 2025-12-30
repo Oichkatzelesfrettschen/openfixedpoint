@@ -28,11 +28,6 @@ TEST_CASE("Q16.16 Basic Operations", "[q16.16]") {
         REQUIRE(static_cast<double>(a * b) == Catch::Approx(3.0));
         REQUIRE(static_cast<double>(b / a) == Catch::Approx(1.33333).epsilon(0.001));
     }
-
-    SECTION("Trigonometry") {
-        // The header defines macros Q16_16_PI which are wrappers.
-        // Let's use the namespace functions
-    }
 }
 
 TEST_CASE("Q16.16 Trig Functions", "[trig]") {
