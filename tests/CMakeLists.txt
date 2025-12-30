@@ -112,3 +112,13 @@ add_executable(test_c_math_functions
 target_link_libraries(test_c_math_functions PRIVATE fixp::fixp q15_16_math_impl m)
 target_compile_features(test_c_math_functions PRIVATE c_std_23)
 add_test(NAME test_c_math_functions COMMAND test_c_math_functions)
+
+#-----------------------------------------------------------------------------
+# DSP Functions Tests (C++)
+#-----------------------------------------------------------------------------
+add_executable(test_dsp_functions
+    unit/test_dsp_functions.cpp
+)
+target_link_libraries(test_dsp_functions PRIVATE fixp::fixp)
+target_compile_features(test_dsp_functions PRIVATE cxx_std_23)
+add_test(NAME test_dsp_functions COMMAND test_dsp_functions)
