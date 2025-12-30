@@ -96,7 +96,7 @@ static inline q16_16_t q16_16_neg_sat(q16_16_t a) {
 }
 
 static inline q16_16_t q16_16_floor(q16_16_t q) {
-    return Q16_16_WRAP((int32_t)((uint32_t)Q16_16_RAW(q) & 0xFFFF0000u));
+    return Q16_16_WRAP(Q16_16_RAW(q) & 0xFFFF0000);
 }
 
 // CORDIC and Math implementation
