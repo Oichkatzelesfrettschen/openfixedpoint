@@ -64,8 +64,20 @@ static inline q16_16_t q16_16_add_sat(q16_16_t a, q16_16_t b) {
 
 static inline q16_16_t q16_16_sub_sat(q16_16_t a, q16_16_t b) {
     int32_t res;
-    if (__builtin_sub_overflow(Q16_16_RAW(a), Q16_16_RAW(b), &res)) {
-        return (Q16_16_RAW(a) < 0) ? Q16_16_MAX : Q16_16_MIN;
+    int32_t ra = Q16_16_RAW(a);
+    int32_t rb = Q16_16_RAW(b);
+    if (__builtin_sub_overflow(ra, rb, &res)) {
+        /* For a - b:
+         * - If a >= 0 and b < 0, the result overflows positively -> clamp to MAX.
+         * - If a < 0 and b > 0, the result overflows negatively -> clamp to MIN.
+         * In all other (unexpected) overflow cases, saturate toward the sign of a - b,
+         * which is consistent with these two primary cases.
+         */
+        if (ra >= 0 && rb < 0) {
+            return Q16_16_MAX;
+        } else {
+            return Q16_16_MIN;
+        }
     }
     return Q16_16_WRAP(res);
 }
