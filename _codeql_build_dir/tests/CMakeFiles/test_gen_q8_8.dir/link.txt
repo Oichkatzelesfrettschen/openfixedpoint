@@ -1,1 +1,0 @@
-/home/runner/work/openfixedpoint/.codeql-scratch/dbs/cpp/working/autobuild/bin/cc -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/test_gen_q8_8.dir/link.d CMakeFiles/test_gen_q8_8.dir/unit/test_gen_q8_8.c.o -o test_gen_q8_8
