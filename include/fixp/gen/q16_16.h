@@ -2,8 +2,8 @@
  * @file q16_16.h
  * @brief Q16.16 Fixed-Point Implementation (Generated)
  *
- * Format: 1 sign bit, 16 integer bits, 16 fractional bits.
- * Underlying storage: int64_t (64-bit).
+ * Logical format: 1 sign bit, 16 integer bits, 16 fractional bits (Q16.16).
+ * Underlying storage: int64_t (64-bit signed integer holding the logical value).
  */
 
 #ifndef FIXP_GEN_Q16_16_H
