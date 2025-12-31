@@ -1,1 +1,0 @@
-/home/runner/work/openfixedpoint/.codeql-scratch/dbs/cpp/working/autobuild/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/test_q16_16_cpp.dir/link.d CMakeFiles/test_q16_16_cpp.dir/unit/test_q16_16.cpp.o -o test_q16_16_cpp  ../_deps/catch2-build/src/libCatch2Main.a ../_deps/catch2-build/src/libCatch2.a
